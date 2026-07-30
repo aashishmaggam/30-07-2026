@@ -1,17 +1,23 @@
-name: CI
-
+name: build & deploy
 on: 
   push:
-
+    branches:
+      - main
+  pull_request:
+    types: 
+    - opened
+    - synchronize
 jobs:
   job1:
     runs-on: ubuntu-latest
+    if: github.ref_name == 'main' || github.event_name == 'pull_request'
     steps:
-      - name: first
-        if: github.actor == 'aashishmaggam' || github.ref == 'main'
-        run: |
-          echo "this is ok"
-          echo "${{github.ref}}"
-
-      - name: failing
-        run: echo "this is not done"
+      - name: build step
+        run: echo "building the application"
+  job2:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref_name == 'main'
+    steps:
+      - name: post build
+        run: echo "app deloymenrt"
+    
