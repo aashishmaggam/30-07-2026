@@ -10,7 +10,7 @@ on:
 jobs:
   run:
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request' && github.event_name.pull_request.base.ref == 'main'
+    if: github.event_name == 'pull_request' || github.event_name.pull_request.base.ref == 'main'
     steps:
       - name: build step
         run: echo "this is building"
