@@ -1,17 +1,12 @@
-name: CI
-
+name: build & deploy
 on: 
-  push:
-
+  pull_request:
+    types:
+      - opened
+      - synchronize
 jobs:
-  job1:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: first
-        if: github.actor == 'aashishmaggam' || github.ref == 'main'
-        run: |
-          echo "this is ok"
-          echo "${{github.ref}}"
-
-      - name: failing
-        run: echo "this is not done"
+      - name: build step
+        run: echo "building the application"
