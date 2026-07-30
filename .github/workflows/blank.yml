@@ -20,7 +20,7 @@ jobs:
     if: github.event_name == 'push' && github.ref_name == 'main'
     steps:
       - name: deployment satge
-        run: echo "this app deployed"
+        run: echo "this app efdeployed"
     
 
 
