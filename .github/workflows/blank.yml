@@ -9,7 +9,9 @@ jobs:
     steps:
       - name: first
         if: github.actor == 'aashishmaggam' || github.ref == 'main'
-        run: echo "this is ok"
+        run: |
+          echo "this is ok"
+          echo "${{github.ref}}"
 
       - name: failing
         run: echo "this is not done"
