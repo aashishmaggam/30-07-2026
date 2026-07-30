@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: first
-        if: github.actor == 'aashhmaggam' || github.ref == 'main'
+        if: github.actor == 'aashishmaggam' || github.ref == 'main'
         run: echo "this is ok"
 
       - name: failing
